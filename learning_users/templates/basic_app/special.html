@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block title_block %}
+<title>Django:MTV - Home Page</title>
+{% endblock %}
+{% block body_block %}
+<div class="jumbotron">
+  <h1>MTV Special Page</h1>
+  <p>Only those logged in can see this page because of pythons decorators.</p>
+  <p>{{ user.username }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+  <h1>Please Login!</h1>
+  <!-- user_login comes from the app/views.oy file.  -->
+  {% if user.is_authenticated %}
+    {{user.username}}, you're already logged in. View the special page <a href="special/">here</a>.
+  {% else %}
+  <form action="{% url 'basic_app:user_login' %}" method="post">
+    {% csrf_token %}
+    {{ user_login_form.as_p}}
+    <input type="submit" value="Login">
+  </form>
+{% endif %}
+</div>
+{% endblock %}
